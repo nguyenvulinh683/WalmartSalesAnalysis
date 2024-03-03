@@ -2,17 +2,17 @@
 
 ## About
 
-This project aims to explore the Walmart Sales data to understand top performing branches and products, sales trend of of different products, customer behaviour. The aims is to study how sales strategies can be improved and optimized. The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting).
+Dự án này nhằm khám phá dữ liệu Bán hàng Walmart để hiểu rõ các chi nhánh và sản phẩm có hiệu suất cao, xu hướng bán hàng của các sản phẩm khác nhau, hành vi khách hàng. Mục tiêu là nghiên cứu cách tối ưu hóa và cải thiện các chiến lược bán hàng. Dữ liệu được thu thập từ [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting).
 
-"In this recruiting competition, job-seekers are provided with historical sales data for 45 Walmart stores located in different regions. Each store contains many departments, and participants must project the sales for each department in each store. To add to the challenge, selected holiday markdown events are included in the dataset. These markdowns are known to affect sales, but it is challenging to predict which departments are affected and the extent of the impact." [source](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)
+“Trong cuộc thi tuyển dụng này, người tìm việc được cung cấp dữ liệu bán hàng lịch sử cho 45 chi nhánh Walmart được đặt ở các vùng khác nhau. Mỗi chi nhánh chứa nhiều bộ phận, và người tham gia phải dự báo bán hàng cho mỗi bộ phận trong mỗi chi nhánh. Để thêm vào thử thách, các sự kiện markdown được chọn được bao gồm trong dữ liệu. Các markdown này biết đến ảnh hưởng đến bán hàng, nhưng việc dự báo các bộ phận bị ảnh hưởng và mức độ ảnh hưởng là khó khăn.” [source](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)
 
 ## Purposes Of The Project
 
-The major aim of thie project is to gain insight into the sales data of Walmart to understand the different factors that affect sales of the different branches.
+Mục tiêu chính của dự án này là nắm bắt được các yếu tố ảnh hưởng đến bán hàng của Walmart để hiểu rõ các sản phẩm khác nhau.
 
 ## About Data
 
-The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting). This dataset contains sales transactions from a three different branches of Walmart, respectively located in Mandalay, Yangon and Naypyitaw. The data contains 17 columns and 1000 rows:
+Dữ liệu được thu thập từ Cuộc thi Dự báo Bán hàng Walmart. Dữ liệu này chứa các giao dịch bán hàng từ ba chi nhánh Walmart khác nhau, tọa lạc tại Mandalay, Yangon và Naypyitaw. Dữ liệu có 17 cột và 1000 hàng:
 
 | Column                  | Description                             | Data Type      |
 | :---------------------- | :-------------------------------------- | :------------- |
@@ -38,34 +38,33 @@ The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition]
 
 1. Product Analysis
 
-> Conduct analysis on the data to understand the different product lines, the products lines performing best and the product lines that need to be improved.
+> Thực hiện phân tích trên dữ liệu để hiểu rõ các loại sản phẩm khác nhau, các loại sản phẩm có hiệu suất cao và các loại sản phẩm cần được cải thiện.
 
 2. Sales Analysis
 
-> This analysis aims to answer the question of the sales trends of product. The result of this can help use measure the effectiveness of each sales strategy the business applies and what modificatoins are needed to gain more sales.
+> Phân tích này nhằm trả lời câu hỏi về xu hướng bán hàng của sản phẩm. Kết quả của phân tích này có thể giúp đo lường hiệu quả của mỗi chiến lược bán hàng mà doanh nghiệp áp dụng và những thay đổi cần thiết để tăng doanh số.
 
 3. Customer Analysis
 
-> This analysis aims to uncover the different customers segments, purchase trends and the profitability of each customer segment.
+> Phân tích này nhằm khám phá ra các nhóm khách hàng khác nhau, xu hướng mua hàng và lợi nhuận của mỗi nhóm khách hàng.
 
 ## Approach Used
 
-1. **Data Wrangling:** This is the first step where inspection of data is done to make sure **NULL** values and missing values are detected and data replacement methods are used to replace, missing or **NULL** values.
+1. **Data Wrangling:** Đây là bước đầu tiên để kiểm tra dữ liệu và phát hiện các giá trị NULL và các giá trị bị mất. Sử dụng các phương pháp thay thế dữ liệu để thay thế, bỏ qua hoặc NULL các giá trị.
 
-> 1. Build a database
-> 2. Create table and insert the data.
-> 3. Select columns with null values in them. There are no null values in our database as in creating the tables, we set **NOT NULL** for each field, hence null values are filtered out.
+> 1. Xây dựng một cơ sở dữ liệu
+> 2. Tạo bảng và chèn dữ liệu.
+> 3. Chọn các cột có giá trị NULL trong chúng. Chúng tôi không có giá trị NULL trong cơ sở dữ liệu của chúng tôi khi tạo các bảng, vì khi tạo các bảng, chúng tôi đặt NOT NULL cho mỗi trường, do đó các giá trị NULL được lọc ra.
 
-2. **Feature Engineering:** This will help use generate some new columns from existing ones.
+2. **Feature Engineering:**  Điều này sẽ giúp chúng ta tạo ra một số cột mới từ các cột hiện có.
 
-> 1. Add a new column named `time_of_day` to give insight of sales in the Morning, Afternoon and Evening. This will help answer the question on which part of the day most sales are made.
+> 1.Thêm một cột mới có tên là time_of_day để cung cấp cái nhìn về doanh số vào Buổi Sáng, Buổi Trưa và Buổi Tối. Điều này sẽ giúp trả lời câu hỏi về phần nào của ngày có doanh số nhiều nhất.
 
-> 2. Add a new column named `day_name` that contains the extracted days of the week on which the given transaction took place (Mon, Tue, Wed, Thur, Fri). This will help answer the question on which week of the day each branch is busiest.
+> 2.Thêm một cột mới có tên là day_name chứa các ngày trong tuần được trích xuất từ giao dịch đã xảy ra (Mon, Tue, Wed, Thur, Fri). Điều này sẽ giúp trả lời câu hỏi về tuần nào trong ngày mỗi chi nhánh bận rộn nhất.
 
-> 3. Add a new column named `month_name` that contains the extracted months of the year on which the given transaction took place (Jan, Feb, Mar). Help determine which month of the year has the most sales and profit.
+> 3. Thêm một cột mới có tên là month_name chứa các tháng trong năm được trích xuất từ giao dịch đã xảy ra (Jan, Feb, Mar). Giúp xác định tháng nào trong năm có doanh số và lợi nhuận nhiều nhất.
 
-2. **Exploratory Data Analysis (EDA):** Exploratory data analysis is done to answer the listed questions and aims of this project.
-
+2. **Exploratory Data Analysis (EDA):**  Exploratory data analysis được thực hiện để trả lời các câu hỏi và mục tiêu của dự án này.
 3. **Conclusion:**
 
 ## Business Questions To Answer
@@ -111,63 +110,3 @@ The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition]
 10. Which day of the week has the best average ratings per branch?
 
 
-## Revenue And Profit Calculations
-
-$ COGS = unitsPrice * quantity $
-
-$ VAT = 5\% * COGS $
-
-$VAT$ is added to the $COGS$ and this is what is billed to the customer.
-
-$ total(gross_sales) = VAT + COGS $
-
-$ grossProfit(grossIncome) = total(gross_sales) - COGS $
-
-**Gross Margin** is gross profit expressed in percentage of the total(gross profit/revenue)
-
-$ \text{Gross Margin} = \frac{\text{gross income}}{\text{total revenue}} $
-
-<u>**Example with the first row in our DB:**</u>
-
-**Data given:**
-
-- $ \text{Unite Price} = 45.79 $
-- $ \text{Quantity} = 7 $
-
-$ COGS = 45.79 * 7 = 320.53 $
-
-$ \text{VAT} = 5\% * COGS\\= 5\%  320.53 = 16.0265 $
-
-$ total = VAT + COGS\\= 16.0265 + 320.53 = $336.5565$
-
-$ \text{Gross Margin Percentage} = \frac{\text{gross income}}{\text{total revenue}}\\=\frac{16.0265}{336.5565} = 0.047619\\\approx 4.7619\% $
-
-## Code
-
-For the rest of the code, check the [SQL_queries.sql](https://github.com/Princekrampah/WalmartSalesAnalysis/blob/master/SQL_queries.sql) file
-
-```sql
--- Create database
-CREATE DATABASE IF NOT EXISTS walmartSales;
-
--- Create table
-CREATE TABLE IF NOT EXISTS sales(
-	invoice_id VARCHAR(30) NOT NULL PRIMARY KEY,
-    branch VARCHAR(5) NOT NULL,
-    city VARCHAR(30) NOT NULL,
-    customer_type VARCHAR(30) NOT NULL,
-    gender VARCHAR(30) NOT NULL,
-    product_line VARCHAR(100) NOT NULL,
-    unit_price DECIMAL(10,2) NOT NULL,
-    quantity INT NOT NULL,
-    tax_pct FLOAT(6,4) NOT NULL,
-    total DECIMAL(12, 4) NOT NULL,
-    date DATETIME NOT NULL,
-    time TIME NOT NULL,
-    payment VARCHAR(15) NOT NULL,
-    cogs DECIMAL(10,2) NOT NULL,
-    gross_margin_pct FLOAT(11,9),
-    gross_income DECIMAL(12, 4),
-    rating FLOAT(2, 1)
-);
-```
